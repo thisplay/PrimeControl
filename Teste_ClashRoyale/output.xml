@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 3.2.1 (Python 3.7.6 on win32)" generated="20200616 23:27:33.787" rpa="false">
+<suite id="s1" name="Execute" source="C:\Users\Windows\Downloads\Teste Prime\Teste_ClashRoyale\Execute.robot">
+<test id="s1-t1" name="Create Key">
+<kw name="Get IpExterno" library="CreateKey">
+<assign>
+<var>${ipExt}</var>
+</assign>
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<arguments>
+<arg>${SERVER_IP}</arg>
+<arg>${BROWSER}</arg>
+</arguments>
+<msg timestamp="20200616 23:27:34.018" level="INFO">Opening browser 'Chrome' to base url 'https://icanhazip.com/'.</msg>
+<status status="PASS" starttime="20200616 23:27:34.018" endtime="20200616 23:27:37.960"></status>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20200616 23:27:37.961" endtime="20200616 23:27:40.099"></status>
+</kw>
+<kw name="Get Element By Script" library="CreateKey">
+<arguments>
+<arg>"/html/body/pre/text()"</arg>
+</arguments>
+<assign>
+<var>${txtIP}</var>
+</assign>
+<kw name="Execute Javascript" library="SeleniumLibrary">
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<arguments>
+<arg>return document.evaluate(${xpath},document.body,null,XPathResult.FIRST_ORDERED_NODE_TYPE,null).singleNodeValue.textContent;</arg>
+</arguments>
+<assign>
+<var>${text}</var>
+</assign>
+<msg timestamp="20200616 23:27:40.100" level="INFO">Executing JavaScript:
+return document.evaluate("/html/body/pre/text()",document.body,null,XPathResult.FIRST_ORDERED_NODE_TYPE,null).singleNodeValue.textContent;
+Without any arguments.</msg>
+<msg timestamp="20200616 23:27:40.104" level="INFO">${text} = 201.82.48.124
+</msg>
+<status status="PASS" starttime="20200616 23:27:40.100" endtime="20200616 23:27:40.104"></status>
+</kw>
+<msg timestamp="20200616 23:27:40.104" level="INFO">${txtIP} = 201.82.48.124
+</msg>
+<status status="PASS" starttime="20200616 23:27:40.100" endtime="20200616 23:27:40.104"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>IP_Externo: ${txtIP}</arg>
+</arguments>
+<status status="PASS" starttime="20200616 23:27:40.104" endtime="20200616 23:27:40.104"></status>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20200616 23:27:40.104" endtime="20200616 23:27:42.198"></status>
+</kw>
+<msg timestamp="20200616 23:27:42.198" level="INFO">${ipExt} = 201.82.48.124
+</msg>
+<status status="PASS" starttime="20200616 23:27:34.017" endtime="20200616 23:27:42.198"></status>
+</kw>
+<kw name="Open Browser To Login Page" library="CreateKey">
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<arguments>
+<arg>${SITE URL}</arg>
+<arg>${BROWSER}</arg>
+</arguments>
+<msg timestamp="20200616 23:27:42.199" level="INFO">Opening browser 'Chrome' to base url 'https://developer.clashroyale.com'.</msg>
+<status status="PASS" starttime="20200616 23:27:42.199" endtime="20200616 23:27:47.027"></status>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20200616 23:27:47.027" endtime="20200616 23:27:49.186"></status>
+</kw>
+<kw name="Set Selenium Speed" library="SeleniumLibrary">
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<arguments>
+<arg>${DELAY}</arg>
+</arguments>
+<status status="PASS" starttime="20200616 23:27:49.187" endtime="20200616 23:27:49.187"></status>
+</kw>
+<kw name="Title Should Be" library="SeleniumLibrary">
+<doc>Verifies that the current page title equals ``title``.</doc>
+<arguments>
+<arg>Clash Royale API</arg>
+</arguments>
+<msg timestamp="20200616 23:27:49.190" level="INFO">Page title is 'Clash Royale API'.</msg>
+<status status="PASS" starttime="20200616 23:27:49.187" endtime="20200616 23:27:49.190"></status>
+</kw>
+<kw name="Click Element By Script" library="CreateKey">
+<arguments>
+<arg>"//a[contains(text(),'Log In')]"</arg>
+</arguments>
+<kw name="Execute Javascript" library="SeleniumLibrary">
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<arguments>
+<arg>document.evaluate(${xpath},document.body,null,9,null).singleNodeValue.click();</arg>
+</arguments>
+<msg timestamp="20200616 23:27:49.191" level="INFO">Executing JavaScript:
+document.evaluate("//a[contains(text(),'Log In')]",document.body,null,9,null).singleNodeValue.click();
+Without any arguments.</msg>
+<status status="PASS" starttime="20200616 23:27:49.191" endtime="20200616 23:27:49.205"></status>
+</kw>
+<status status="PASS" starttime="20200616 23:27:49.190" endtime="20200616 23:27:49.205"></status>
+</kw>
+<status status="PASS" starttime="20200616 23:27:42.199" endtime="20200616 23:27:49.206"></status>
+</kw>
+<kw name="Input Username" library="CreateKey">
+<arguments>
+<arg>douglas2012.ribeiro@gmail.com</arg>
+</arguments>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>email</arg>
+<arg>${username}</arg>
+</arguments>
+<msg timestamp="20200616 23:27:49.206" level="INFO">Typing text 'douglas2012.ribeiro@gmail.com' into text field 'email'.</msg>
+<status status="PASS" starttime="20200616 23:27:49.206" endtime="20200616 23:27:49.327"></status>
+</kw>
+<status status="PASS" starttime="20200616 23:27:49.206" endtime="20200616 23:27:49.327"></status>
+</kw>
+<kw name="Input Password" library="CreateKey">
+<arguments>
+<arg>TestePrime</arg>
+</arguments>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>password</arg>
+<arg>${password}</arg>
+</arguments>
+<msg timestamp="20200616 23:27:49.327" level="INFO">Typing text 'TestePrime' into text field 'password'.</msg>
+<status status="PASS" starttime="20200616 23:27:49.327" endtime="20200616 23:27:49.417"></status>
+</kw>
+<status status="PASS" starttime="20200616 23:27:49.327" endtime="20200616 23:27:49.417"></status>
+</kw>
+<kw name="Submit Credentials" library="CreateKey">
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks the button identified by ``locator``.</doc>
+<arguments>
+<arg>xpath=//*[@type='submit']</arg>
+</arguments>
+<msg timestamp="20200616 23:27:49.418" level="INFO">Clicking button 'xpath=//*[@type='submit']'.</msg>
+<status status="PASS" starttime="20200616 23:27:49.417" endtime="20200616 23:27:49.461"></status>
+</kw>
+<status status="PASS" starttime="20200616 23:27:49.417" endtime="20200616 23:27:49.461"></status>
+</kw>
+<kw name="Create Key" library="CreateKey">
+<arguments>
+<arg>Douglas</arg>
+<arg>Teste Prime</arg>
+<arg>${ipExt}</arg>
+</arguments>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>3s</arg>
+</arguments>
+<msg timestamp="20200616 23:27:52.467" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20200616 23:27:49.462" endtime="20200616 23:27:52.467"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>xpath=//*[@id="content"]/div/div[2]/div/header/div/div/div[3]/div/div/button</arg>
+</arguments>
+<msg timestamp="20200616 23:27:52.467" level="INFO">Clicking element 'xpath=//*[@id="content"]/div/div[2]/div/header/div/div/div[3]/div/div/button'.</msg>
+<status status="PASS" starttime="20200616 23:27:52.467" endtime="20200616 23:27:52.498"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>xpath=//*[@id="content"]/div/div[2]/div/header/div/div/div[3]/div/div/ul/li[1]/a</arg>
+</arguments>
+<status status="PASS" starttime="20200616 23:27:52.498" endtime="20200616 23:27:52.517"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>xpath=//*[@id="content"]/div/div[2]/div/header/div/div/div[3]/div/div/ul/li[1]/a</arg>
+</arguments>
+<msg timestamp="20200616 23:27:52.518" level="INFO">Clicking element 'xpath=//*[@id="content"]/div/div[2]/div/header/div/div/div[3]/div/div/ul/li[1]/a'.</msg>
+<status status="PASS" starttime="20200616 23:27:52.518" endtime="20200616 23:27:52.564"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>3s</arg>
+</arguments>
+<msg timestamp="20200616 23:27:55.578" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20200616 23:27:52.565" endtime="20200616 23:27:55.578"></status>
+</kw>
+<kw name="Click Element By Script" library="CreateKey">
+<arguments>
+<arg>"//*[@id='content']/div/div[2]/div/div/section[2]/div/div/div[2]/p/a"</arg>
+</arguments>
+<kw name="Execute Javascript" library="SeleniumLibrary">
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<arguments>
+<arg>document.evaluate(${xpath},document.body,null,9,null).singleNodeValue.click();</arg>
+</arguments>
+<msg timestamp="20200616 23:27:55.579" level="INFO">Executing JavaScript:
+document.evaluate("//*[@id='content']/div/div[2]/div/div/section[2]/div/div/div[2]/p/a",document.body,null,9,null).singleNodeValue.click();
+Without any arguments.</msg>
+<status status="PASS" starttime="20200616 23:27:55.578" endtime="20200616 23:27:55.600"></status>
+</kw>
+<status status="PASS" starttime="20200616 23:27:55.578" endtime="20200616 23:27:55.600"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>name</arg>
+<arg>${nome}</arg>
+</arguments>
+<msg timestamp="20200616 23:27:55.601" level="INFO">Typing text 'Douglas' into text field 'name'.</msg>
+<status status="PASS" starttime="20200616 23:27:55.600" endtime="20200616 23:27:55.673"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>description</arg>
+<arg>${obs}</arg>
+</arguments>
+<msg timestamp="20200616 23:27:55.673" level="INFO">Typing text 'Teste Prime' into text field 'description'.</msg>
+<status status="PASS" starttime="20200616 23:27:55.673" endtime="20200616 23:27:55.746"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>range-0</arg>
+<arg>${ipExt}</arg>
+</arguments>
+<msg timestamp="20200616 23:27:55.746" level="INFO">Typing text '201.82.48.124
+' into text field 'range-0'.</msg>
+<status status="PASS" starttime="20200616 23:27:55.746" endtime="20200616 23:27:55.832"></status>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks the button identified by ``locator``.</doc>
+<arguments>
+<arg>xpath=//*[@type='submit']</arg>
+</arguments>
+<msg timestamp="20200616 23:27:55.832" level="INFO">Clicking button 'xpath=//*[@type='submit']'.</msg>
+<status status="PASS" starttime="20200616 23:27:55.832" endtime="20200616 23:27:55.881"></status>
+</kw>
+<kw name="Save Key" library="CreateKey">
+<arguments>
+<arg>${nome}</arg>
+</arguments>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>3s</arg>
+</arguments>
+<msg timestamp="20200616 23:27:58.885" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20200616 23:27:55.881" endtime="20200616 23:27:58.885"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>xpath=//h4[@class='api-key__name' and text()='${nomeCriado}']</arg>
+</arguments>
+<msg timestamp="20200616 23:27:58.885" level="INFO">Clicking element 'xpath=//h4[@class='api-key__name' and text()='Douglas']'.</msg>
+<status status="PASS" starttime="20200616 23:27:58.885" endtime="20200616 23:27:58.942"></status>
+</kw>
+<kw name="Get Element By Script" library="CreateKey">
+<arguments>
+<arg>"//*[@id='content']/div/div[2]/div/div/section/div/div/div[2]/form/div[1]/div/samp/text()"</arg>
+</arguments>
+<assign>
+<var>${txtKey}</var>
+</assign>
+<kw name="Execute Javascript" library="SeleniumLibrary">
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<arguments>
+<arg>return document.evaluate(${xpath},document.body,null,XPathResult.FIRST_ORDERED_NODE_TYPE,null).singleNodeValue.textContent;</arg>
+</arguments>
+<assign>
+<var>${text}</var>
+</assign>
+<msg timestamp="20200616 23:27:58.943" level="INFO">Executing JavaScript:
+return document.evaluate("//*[@id='content']/div/div[2]/div/div/section/div/div/div[2]/form/div[1]/div/samp/text()",document.body,null,XPathResult.FIRST_ORDERED_NODE_TYPE,null).singleNodeValue.textContent;
+Without any arguments.</msg>
+<msg timestamp="20200616 23:27:58.947" level="INFO">${text} = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiIsImtpZCI6IjI4YTMxOGY3LTAwMDAtYTFlYi03ZmExLTJjNzQzM2M2Y2NhNSJ9.eyJpc3MiOiJzdXBlcmNlbGwiLCJhdWQiOiJzdXBlcmNlbGw6Z2FtZWFwaSIsImp0aSI6IjQ1OWViNGIzLTBiZGYtNDI2NS05NGY2LTF...</msg>
+<status status="PASS" starttime="20200616 23:27:58.942" endtime="20200616 23:27:58.947"></status>
+</kw>
+<msg timestamp="20200616 23:27:58.947" level="INFO">${txtKey} = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiIsImtpZCI6IjI4YTMxOGY3LTAwMDAtYTFlYi03ZmExLTJjNzQzM2M2Y2NhNSJ9.eyJpc3MiOiJzdXBlcmNlbGwiLCJhdWQiOiJzdXBlcmNlbGw6Z2FtZWFwaSIsImp0aSI6IjQ1OWViNGIzLTBiZGYtNDI2NS05NGY2LTF...</msg>
+<status status="PASS" starttime="20200616 23:27:58.942" endtime="20200616 23:27:58.947"></status>
+</kw>
+<kw name="Create File" library="OperatingSystem">
+<doc>Creates a file with the given content and encoding.</doc>
+<arguments>
+<arg>${PATH}</arg>
+</arguments>
+<msg timestamp="20200616 23:27:58.948" level="INFO" html="yes">Created file '&lt;a href="file://C:\Users\Windows\Downloads\Teste Prime\Teste_ClashRoyale\MyKey.txt"&gt;C:\Users\Windows\Downloads\Teste Prime\Teste_ClashRoyale\MyKey.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20200616 23:27:58.947" endtime="20200616 23:27:58.948"></status>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>MyKey.txt</arg>
+<arg>${txtKey}</arg>
+</arguments>
+<msg timestamp="20200616 23:27:58.948" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\Windows\Downloads\Teste Prime\Teste_ClashRoyale\MyKey.txt"&gt;C:\Users\Windows\Downloads\Teste Prime\Teste_ClashRoyale\MyKey.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20200616 23:27:58.948" endtime="20200616 23:27:58.948"></status>
+</kw>
+<status status="PASS" starttime="20200616 23:27:55.881" endtime="20200616 23:27:58.948"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>Chave salva no arquivo ${PATH}</arg>
+</arguments>
+<status status="PASS" starttime="20200616 23:27:58.948" endtime="20200616 23:27:58.949"></status>
+</kw>
+<status status="PASS" starttime="20200616 23:27:49.461" endtime="20200616 23:27:58.949"></status>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary" type="teardown">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20200616 23:27:58.949" endtime="20200616 23:28:01.062"></status>
+</kw>
+<status status="PASS" starttime="20200616 23:27:34.017" endtime="20200616 23:28:01.062" critical="yes"></status>
+</test>
+<test id="s1-t2" name="Save Members">
+<kw name="Iniciar Busca" library="GetMembers">
+<kw name="Buscar Membros" library="ClashRoyale">
+<arguments>
+<arg>${CLAN_NAME}</arg>
+<arg>${CLAN_TAG}</arg>
+<arg>${CLAN_LOCATION}</arg>
+</arguments>
+<msg timestamp="20200616 23:28:03.026" level="INFO">Arquivo Salvo com sucesso!</msg>
+<status status="PASS" starttime="20200616 23:28:01.064" endtime="20200616 23:28:03.026"></status>
+</kw>
+<status status="PASS" starttime="20200616 23:28:01.063" endtime="20200616 23:28:03.026"></status>
+</kw>
+<status status="PASS" starttime="20200616 23:28:01.063" endtime="20200616 23:28:03.027" critical="yes"></status>
+</test>
+<doc>Um Robot para Criar Chave no Site Clash Royale
+
+Este Robot faz login no Site Desenvolvedor do Clash Royale
+Cria uma nova chave e salva em um arquivo txt</doc>
+<status status="PASS" starttime="20200616 23:27:33.788" endtime="20200616 23:28:03.028"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="0">Critical Tests</stat>
+<stat pass="2" fail="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="2" fail="0" id="s1" name="Execute">Execute</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
